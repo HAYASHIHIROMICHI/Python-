@@ -13,8 +13,8 @@ def index():
 
 @app.route("/api/recommend_article")
 def api_recommend_article():
-    """はてブのホットエントリーから記事を入手して、ランダムに1件返却します."""
-    with urlopen("http://feeds.feedburner.com/hatena/b/hotentry") as res:
+    """ライブドアニュースIT経済からおすすめをピックアップ."""
+    with urlopen("https://news.livedoor.com/topics/category/eco/") as res:
         html = res.read().decode("utf-8")
     soup = BeautifulSoup(html, "html.parser")
     items = soup.select("item")
